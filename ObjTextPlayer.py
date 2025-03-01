@@ -195,8 +195,9 @@ def end_summary():
 ai_bia = DBAI("biased/max_eps.csv", "biased/opt_choices.csv")
 ai_unb = DBAI("unbiased/max_eps.csv", "unbiased/opt_choices.csv")
 ai_nfl = DBAI("nflep/nfl_pbp_data.csv", "nflep/opt_choices.csv")
+ai_coach = DBAI("nflep/nfl_pbp_data.csv", "coach_decisions_grouped.csv")
 
-game = Game("ME", "BIA", num_plays) 
+game = Game("HUMAN", "COACH", num_plays) 
 SIM = False
 EP = True
 
@@ -204,7 +205,7 @@ playing = True
 
 #player1 = Computer(ai_bia)
 player1 = Human
-player2 = Computer(ai_bia)
+player2 = Computer(ai_coach)
 
 game.toss()
 print(game.pos.name + " won the toss!\n")
